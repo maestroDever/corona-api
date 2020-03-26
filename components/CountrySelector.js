@@ -19,13 +19,13 @@ export default function CountrySelector() {
           setSelectedCountry(e.target.value);
         }}
       >
-        {Object.entries(countries.countries).map(([country, code]) => (
+        {countries && countries.countries && countries.countries.map(({iso2, iso3, name}) => (
           <option
-            selected={selectedCountry === countries.iso3[code]}
-            key={code}
-            value={countries.iso3[code]}
+            defaultValue={selectedCountry}
+            key={name}
+            value={iso3}
           >
-            {country}
+            {name}
           </option>
         ))}
       </select>
