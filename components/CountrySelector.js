@@ -6,7 +6,7 @@ export default function CountrySelector() {
   const { stats: countries, loading, error } = useStats(
     'https://covid19.mathdro.id/api/countries'
   );
-  const [selectedCountry, setSelectedCountry] = useState('USA');
+  const [selectedCountry, setSelectedCountry] = useState('RUS');
   if (loading) return <p>Loading...</p>;
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error...</p>;
@@ -18,10 +18,10 @@ export default function CountrySelector() {
         onChange={e => {
           setSelectedCountry(e.target.value);
         }}
+        defaultValue={selectedCountry}
       >
         {countries && countries.countries && countries.countries.map(({iso2, iso3, name}) => (
           <option
-            defaultValue={selectedCountry}
             key={name}
             value={iso3}
           >
